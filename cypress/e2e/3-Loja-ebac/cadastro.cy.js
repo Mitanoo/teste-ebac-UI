@@ -8,7 +8,7 @@ describe('Funcionalidade: Cadastro', () => {
         cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
     });
 
-    it.only('Deve completar o cadastro com sucesso - VARIÁVEIS', () => {
+    it('Deve completar o cadastro com sucesso - VARIÁVEIS', () => {
         var email = faker.internet.email(nome)
         var nome = faker.person.firstName()
         var sobrenome = faker.person.lastName()
