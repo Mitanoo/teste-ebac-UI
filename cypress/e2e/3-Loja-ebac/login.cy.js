@@ -14,7 +14,7 @@ describe('Funcionalidade: Login', () => {
     it('Deve fazer login com sucesso', () => {
         cy.get('#username').type('teste.incrivel@uau.com.br')
         cy.get('#password').type('123456789')
-        cy.get('.woocommerce-form > .button')
+        cy.get('.woocommerce-form > .button').click()
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, teste.incrivel (não é teste.incrivel? Sair)')
     });
 
@@ -46,6 +46,11 @@ describe('Funcionalidade: Login', () => {
             cy.get('.woocomerce-form > .button').click()
             cy.get('.woocomerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, teste.incrivel (não é teste.incrivel? Sair)')
         })
+    });
+
+    it.only('Deve fazer login com sucesso - Usando comandos customizados', () => {
+        cy.login('teste.incrível@uau.com.br', '123456789')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, teste.incrivel (não é teste.incrivel? Sair)')
     });
 
 });
